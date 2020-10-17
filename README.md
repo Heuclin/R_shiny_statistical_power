@@ -1,5 +1,6 @@
 
-# Power of a test, an R shiny application  <img src="logo/logo_shiny.png" align="right" width=120 height=139 alt="" />
+ 
+# Power of a test, an R shiny application 
 
 B. Heuclin
 
@@ -10,5 +11,16 @@ R shiny application to understand the Type I error rate, the Type II error rate,
 
 Run the application:
 
+```{r}
+library(shiny)
+runGitHub("Heuclin/R_shiny_statistical_power")
+```
+
+or
+
 https://heuclin.shinyapps.io/Statistical_power/
 
+$~$
+$~$
+
+<img src="logo/Logo_supagro.png" align="left" width=190 height=100 alt="" /> <img src="logo/logo_shiny.png" align="right" width=120 height=139 alt="" />
