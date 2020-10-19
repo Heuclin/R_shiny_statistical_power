@@ -16,11 +16,10 @@ library(shiny)
 runGitHub("Heuclin/R_shiny_statistical_power")
 ```
 
-or
+or open it directly using this URL:
 
-https://heuclin.shinyapps.io/Statistical_power/
+https://heuclin.shinyapps.io/statistical_power/
 
-$~$
-$~$
 
-<img src="logo/Logo_supagro.png" align="left" width=190 height=100 alt="" /> <img src="logo/logo_shiny.png" align="right" width=120 height=139 alt="" />
+<img src="www/logo_supagro.png" align="left" width=190 height=100 alt="" /> 
+<img src="www/logo_shiny.png" align="right" width=120 height=139 alt="" />

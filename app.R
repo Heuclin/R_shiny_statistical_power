@@ -2,6 +2,7 @@
 
 library(shiny)
 library(shinydashboard)
+library(shinyWidgets)
 library(plotly)
 library(ggplot2)
 
@@ -26,6 +27,8 @@ b <- c(0, -2, 3, 4)  # coefficients associes aux modalites du B
 
 
 
+supagro_logo <- tags$a(href='https://en.montpellier-supagro.fr',
+       img(src='logo_supagro.png', width='120', height='60'))
 
 
 # Define UI for application that draws a histogram
@@ -63,15 +66,16 @@ ui <- dashboardPage(
                 min = 0.01, max = 0.20, value = 0.05
     ),
     
-    checkboxInput("area_alpha", label = "plot alpha", value = TRUE),
-    checkboxInput("area_beta", label = "plot beta", value = TRUE),
-    checkboxInput("area_power", label = "plot power", value = TRUE) ,
+    materialSwitch(inputId = "area_alpha", label = "Plot alpha area", status = "danger", value = TRUE, right = TRUE),
+    materialSwitch(inputId = "area_beta", label = "Plot beta area", status = "success", value = TRUE, right = TRUE),
+    materialSwitch(inputId = "area_power", label = "Plot power area", status = "primary", value = TRUE, right = TRUE),
     
     
     br(),
     a(h4("Benjamin Heuclin") ,href = "https://github.com/Heuclin"),
-    a("SupAgro Montpellier" ,href = "https://www.montpellier-supagro.fr"),
-    p("2020")
+    p("2020"),
+    supagro_logo
+    # a("SupAgro Montpellier" ,href = "https://en.montpellier-supagro.fr"),
   ),
   
   
@@ -216,8 +220,8 @@ server <- function(input, output) {
     pp <- ggplot(dat(), aes(x=x, y=density_H0)) + geom_line(aes(colour = "Density under H0"), size = 1)+
       geom_line(aes(x=x, y=density_H1, colour = "Density under H1"), size = 1) +
       scale_y_continuous(name = "Density") +
-      geom_vline(aes(xintercept = S()), color = "black", size=1) +  geom_text(x=S()+0.3, y=-0.025, label=paste0("T = ", round(S(), 2))) +
-      geom_vline(aes(xintercept = F()), linetype="dotted",color = "black", size=1)  + geom_text(x=F()+0.5, y=0.025, colour = "black",label=paste0("F_obs = ", round(F(), 2)))
+      geom_vline(aes(xintercept = S()), color = "black", size=1) +  geom_text(x=S()+0.5, y=-0.025, label=paste0("T = ", round(S(), 2))) +
+      geom_vline(aes(xintercept = F()), linetype="dotted",color = "black", size=1)  + geom_text(x=F()+0.7, y=0.025, colour = "black",label=paste0("F_obs = ", round(F(), 2)))
     
     
     if(input$area_alpha==1) p_alpha <-  geom_ribbon(data=subset(dat() ,x>S() & x<Inf),aes(ymax=density_H0), ymin=0, fill="red", colour=NA, alpha=0.5) else p_alpha <- NULL
