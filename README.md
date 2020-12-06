@@ -12,6 +12,7 @@ R shiny application to understand the Type I error rate, the Type II error rate,
 Run the application:
 
 ```{r}
+
 library(shiny)
 library(shinydashboard)
 library(shinyWidgets)
