@@ -13,6 +13,10 @@ Run the application:
 
 ```{r}
 library(shiny)
+library(shinydashboard)
+library(shinyWidgets)
+library(plotly)
+library(ggplot2)
 runGitHub("Heuclin/R_shiny_statistical_power")
 ```
 
