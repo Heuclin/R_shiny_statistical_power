@@ -28,7 +28,7 @@ b <- c(0, -2, 3, 4)  # coefficients associes aux modalites du B
 
 
 supagro_logo <- tags$a(href='https://en.montpellier-supagro.fr',
-       img(src='logo_supagro.png', width='120', height='60'))
+       img(src='logo_supagro.png', width='220', height='60'))
 
 
 # Define UI for application that draws a histogram

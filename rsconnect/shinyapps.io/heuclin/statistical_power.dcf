@@ -5,9 +5,9 @@ account: heuclin
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3041360
-bundleId: 3754388
+bundleId: 3950910
 url: https://heuclin.shinyapps.io/statistical_power/
-when: 1603012797.4305
+when: 1607273065.23512
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: README.html|README.md|logo/logo_shiny.png
+ignoredFiles: logosupagro.png|README.html|README.md
