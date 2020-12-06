@@ -97,15 +97,11 @@ ui <- dashboardPage(
                           });" ),
               
               h2("Presentation"),
-              p("This application aims at disentagle the risk and power of statistical test"),
+              p("This application aims at disentangling the risk and power of statistical test."),
               p("To illustate it, we simulate a linear model with two factors A (4 levels) and B (4 levels) (anova model without interaction):"),
               withMathJax("$$Y_{ijk} = \\mu + \\alpha_i + \\gamma_j  + \\varepsilon_{ijk}$$"),
               
-              p('where $ Y_{ijk}$ is the value of the obersation $ijk$, '),
-              p('$\\mu$ is the intercept'),
-              p('$\\alpha_i$ is the effect of the level $i$ of factor A'),
-              p('$\\gamma_j$ is the effect of the level $j$ of factor B'),
-              p("$\\varepsilon_{ijk}$ is the residual of individual $ijk$. Residuals are assumed independent and identicay distributed $\\varepsilon_{ijk} \\sim N(0, \\sigma^2)$  "),
+              p('where $ Y_{ijk}$ is the value of the observation $ijk$, $\\mu$ is the intercept, $\\alpha_i$ is the effect of the level $i$ of factor A, $\\gamma_j$ is the effect of the level $j$ of factor B, $\\varepsilon_{ijk}$ is the residual of individual $ijk$. Residuals are assumed independent and identicaly distributed $\\varepsilon_{ijk} \\sim N(0, \\sigma^2)$ '),
               br(),
               br(),
               p('We fixed $\\mu$ to 3 and effects of factor B to c(0, -2, 3, 4).'),
@@ -115,15 +111,18 @@ ui <- dashboardPage(
               p('User can play with these different parameters in the sidebar'),
               br(),
               h4("Fisher test:"),
-              p(' H0 : A does not involved on Y ($\\alpha_1 = \\alpha_2 = \\alpha_3 = \\alpha_4$ and the model can be reformulated $M_0: ~ Y_{ijk} = \\mu + \\gamma_j  + \\varepsilon_{ijk}$'),
+              p(' H0 : A does not involved on Y ($\\alpha_1 = \\alpha_2 = \\alpha_3 = \\alpha_4$) and the model can be reformulated $M_0: ~ Y_{ijk} = \\mu + \\gamma_j  + \\varepsilon_{ijk}$'),
               p('vs'),
-              p("H1 : A involve on Y ($\\exists i \\neq j \\text{ such as } \\alpha_i \\neq \\alpha_{j}$ and the model can be reformulated $M_1: ~ Y_{ijk} = \\mu + \\alpha_i + \\gamma_j  + \\varepsilon_{ijk}$"),
+              p("H1 : A involve on Y ($\\exists i \\neq j \\text{ such as } \\alpha_i \\neq \\alpha_{j}$) and the model can be reformulated $M: ~ Y_{ijk} = \\mu + \\alpha_i + \\gamma_j  + \\varepsilon_{ijk}$"),
               br(),
-              p('Statistic: $F_{obs} = \\frac{}{}'),
+              p('Statistic: $F_{obs} = \\frac{(SSE_0 - SSE)/(p-p_0)}{SSE/(n-p)}$, where $SSE_0$ and $SSE$ are the error sums of squares of model $M_0$ and $M$ respectively, $n$ is the number of observations, $p_0$ and $p$ are the numbers of parameters of model $M_0$ and $M$ respectively.'),
+              br(),
+              p('Under H0, $F_{obs}$ follows Fisher distribution with df $p-p_0$ and $n-p$.'),
+              p('Under H1, $F_{obs}$ follows Fisher distribution with df $p-p_0$ and $n-p$ and non-centrality parameter $\\delta$ which can be estimated by $(p-p_0)F_{obs}$.'),
               
               
               br(),
-              p('Results panel provides the ANOVA table in R, an interactive graph of densities of $F_{obs}$ under H0 and H1 and provides the Type II error rate, the power, the values of $F_{obs}$ and the threshold $q_{1 - \\alpha}(\\mathcal{X}^2_{(p-p_0, n-p)})$')
+              p('"Results" panel provides the ANOVA table, an interactive graph of densities of $F_{obs}$ under H0 and H1 and provides the Type II error rate, the power, the values of $F_{obs}$ and the threshold $q_{1 - \\alpha}(\\mathcal{X}^2_{(p-p_0, n-p)})$.')
               
               
       ),
